@@ -1,13 +1,43 @@
 # Fortress AI Innovation Challenge
 
-Initial project structure for a cinematic HTML short film.
+Reusable architecture for a cinematic HTML short film built with modern ES6 modules and no frontend framework.
 
-## Files
+## Project Structure
 
-- `index.html` loads the page structure, stylesheet, and script.
-- `style.css` creates the full-screen black background and centered white title text.
-- `script.js` provides a lightweight initialization hook for future cinematic behavior.
+```text
+/
+  index.html
+  style.css
+  script.js
+  README.md
+  assets/
+      office/
+      portraits/
+      props/
+      ui/
+  scenes/
+      scene1.js
+  engine/
+      camera.js
+      sceneManager.js
+      animationManager.js
+      assetManager.js
+```
+
+## Architecture
+
+- `engine/sceneManager.js` registers scene modules, mounts the active scene, and cleans up when changing scenes.
+- `engine/camera.js` applies smooth pan and zoom transforms to the camera stage.
+- `engine/animationManager.js` runs timeline-based animations with reusable easing functions.
+- `engine/assetManager.js` registers, preloads, caches, and retrieves reusable assets.
+- `scenes/scene1.js` is a placeholder title scene that verifies the engine is wired together. It intentionally does not build the office yet.
 
 ## Run
 
-Open `index.html` in a browser.
+Because the app uses ES6 modules, serve the folder with a local static server and open the shown URL:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
