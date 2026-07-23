@@ -20,7 +20,7 @@ body {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  background: radial-gradient(circle at center, #15151f 0%, #050507 58%, #000 100%);
+  background: #000;
 }
 
 .camera-stage {
@@ -33,40 +33,157 @@ body {
   min-height: 100vh;
 }
 
-.title-card {
+.office-layout-scene {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  place-items: center;
   padding: 2rem;
-  text-align: center;
+  background: #000;
 }
 
-.title-card h1,
-.title-card p {
-  margin: 0;
+.cinematic-canvas {
+  position: relative;
+  width: min(92vw, 1280px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 0.2rem solid #8a8a8a;
+  background: #202020;
 }
 
-.title-card h1 {
-  max-width: 11ch;
-  font-size: clamp(3rem, 9vw, 8rem);
+.room-shell {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #2d2d2d;
+}
+
+.wall {
+  position: absolute;
+  border: 0.12rem solid #5f5f5f;
+  background: #3a3a3a;
+}
+
+.wall-back {
+  left: 18%;
+  top: 8%;
+  width: 64%;
+  height: 48%;
+}
+
+.wall-left {
+  left: -2%;
+  top: 8%;
+  width: 22%;
+  height: 48%;
+  transform: skewY(-20deg);
+  transform-origin: right top;
+}
+
+.wall-right {
+  right: -2%;
+  top: 8%;
+  width: 22%;
+  height: 48%;
+  transform: skewY(20deg);
+  transform-origin: left top;
+}
+
+.floor-plane {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 6%;
+  height: 44%;
+  border: 0.12rem solid #5f5f5f;
+  background: #262626;
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+
+.placeholder {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 0.14rem dashed #cfcfcf;
+  background: #4b4b4b;
+  color: #f0f0f0;
+  font-size: clamp(0.58rem, 1.2vw, 1rem);
   font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 0.9;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  text-align: center;
   text-transform: uppercase;
 }
 
-.eyebrow,
-.subtitle {
-  color: rgba(255, 255, 255, 0.72);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+.window-placeholder {
+  left: 7%;
+  top: 13%;
+  width: 23%;
+  height: 38%;
 }
 
-.subtitle {
-  max-width: 38rem;
-  letter-spacing: 0.08em;
-  text-transform: none;
+.portrait-placeholder {
+  left: 41%;
+  top: 11%;
+  width: 16%;
+  height: 32%;
+}
+
+.wall-art {
+  top: 58%;
+  width: 12%;
+  height: 21%;
+}
+
+.wall-art-one {
+  left: 35%;
+}
+
+.wall-art-two {
+  left: 49%;
+}
+
+.wall-art-three {
+  left: 63%;
+}
+
+.desk-placeholder {
+  left: 28%;
+  bottom: 16%;
+  width: 36%;
+  height: 26%;
+}
+
+.monitors-placeholder {
+  left: 35%;
+  bottom: 45%;
+  width: 22%;
+  height: 20%;
+}
+
+.couch-placeholder {
+  left: 5%;
+  bottom: 12%;
+  width: 21%;
+  height: 28%;
+}
+
+.tv-placeholder {
+  right: 10%;
+  bottom: 41%;
+  width: 19%;
+  height: 23%;
+}
+
+.bookshelf-placeholder {
+  right: 3%;
+  bottom: 12%;
+  width: 14%;
+  height: 32%;
+}
+
+.side-table-placeholder {
+  left: 21%;
+  bottom: 10%;
+  width: 10%;
+  height: 17%;
 }
