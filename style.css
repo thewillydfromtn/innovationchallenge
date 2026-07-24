@@ -68,53 +68,6 @@ body {
 .office-overlay {
   position: absolute;
   transform-origin: center center;
-  will-change: transform, opacity;
   pointer-events: none;
 }
 
-.right-monitor-overlay {
-  left: 51.6%;
-  top: 58.9%;
-  width: 26.5%;
-  height: 20.6%;
-  transform: perspective(40rem) rotateY(-5deg);
-}
-
-.portrait-overlay {
-  left: 54%;
-  top: 17%;
-  width: 12%;
-  height: 27%;
-}
-
-.wall-art-overlay {
-  left: 86%;
-  top: 17%;
-  width: 12%;
-  height: 30%;
-  transform: skewY(-5deg);
-}
-
-.desk-candle-overlay {
-  left: 58%;
-  top: 72%;
-  width: 3%;
-  height: 8%;
-  z-index: 30;
-}
-
-.desk-drink-overlay {
-  left: 67%;
-  top: 72%;
-  width: 3.2%;
-  height: 8%;
-  z-index: 30;
-}
-
-.william-overlay {
-  left: 41%;
-  top: 41%;
-  width: 13%;
-  height: 37%;
-  z-index: 25;
-}

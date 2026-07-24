@@ -1,9 +1,8 @@
-const OFFICE_BACKGROUND_KEY = 'masterOfficeReference';
-const OFFICE_BACKGROUND_SRC = 'assets/master-office-reference.png';
+import { BACKGROUND_IMAGES } from '../overlayMap.js';
+import { renderOfficeOverlays } from '../overlays/overlayComponents.js';
 
-const overlayComponent = (className, name, children = '') => `
-  <div class="office-overlay ${className}" data-overlay="${name}" aria-label="${name}">${children}</div>
-`;
+const OFFICE_BACKGROUND_KEY = 'masterOfficeReference';
+const OFFICE_BACKGROUND_SRC = BACKGROUND_IMAGES.office;
 
 /**
  * Permanent office scene architecture.
@@ -30,12 +29,7 @@ export const scene1 = {
           decoding="async"
         >
         <div class="overlay-layer" aria-label="Reusable animation overlay layer">
-          ${overlayComponent('right-monitor-overlay', 'RightMonitor')}
-          ${overlayComponent('portrait-overlay', 'PortraitOverlay')}
-          ${overlayComponent('wall-art-overlay', 'WallArtOverlay')}
-          ${overlayComponent('desk-candle-overlay', 'DeskCandle')}
-          ${overlayComponent('desk-drink-overlay', 'DeskDrink')}
-          ${overlayComponent('william-overlay', 'William')}
+          ${renderOfficeOverlays()}
         </div>
       </div>`;
     return scene;
