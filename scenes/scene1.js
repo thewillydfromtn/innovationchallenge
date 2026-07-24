@@ -1,5 +1,5 @@
 const OFFICE_BACKGROUND_KEY = 'masterOfficeReference';
-const OFFICE_BACKGROUND_SRC = 'assets/reference/master-office-reference.png';
+const OFFICE_BACKGROUND_SRC = 'assets/master-office-reference.png';
 
 const overlayComponent = (className, name, children = '') => `
   <div class="office-overlay ${className}" data-overlay="${name}" aria-label="${name}">${children}</div>
