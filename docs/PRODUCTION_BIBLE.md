@@ -42,11 +42,11 @@ This section is reserved for animation principles, motion constraints, and conti
 
 ## Technical Architecture
 
-This section is reserved for the production's technical structure, pipeline notes, and implementation requirements once those details are formally defined.
+The approved office is rendered from `assets/reference/master-office-reference.png` as a single permanent background image. The application must not recreate permanent room elements such as walls, floor, bookshelf, books, couch, desk, skyline, window, lighting, furniture, decorations, or permanent room artwork with HTML/CSS/SVG. Scene HTML is limited to reusable overlay components (`RightMonitor`, `PortraitOverlay`, `WallArtOverlay`, `DeskCandle`, `DeskDrink`, and `William`) that are independently positioned above the background and prepared for future animation. The engine, scene manager, camera manager, animation manager, asset manager, GitHub Pages setup, and documentation remain part of the production architecture.
 
 ## Asset Inventory
 
-This section is reserved for the authoritative list of production assets, their status, and usage notes once assets are formally identified.
+`assets/reference/master-office-reference.png` is the approved master office image and the canonical visual source for the permanent office background.
 
 ## Open Decisions
 
