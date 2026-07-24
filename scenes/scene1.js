@@ -38,4 +38,8 @@ export const scene1 = {
       </div>`;
     return scene;
   },
+  async enter({ timelineEngine }, { actNumber = DEFAULT_ACT_NUMBER, rootElement } = {}) {
+    const actConfig = loadAct(actNumber);
+    await timelineEngine.play(actConfig.timeline, { rootElement });
+  },
 };

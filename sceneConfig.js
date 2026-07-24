@@ -6,12 +6,10 @@ export const ACT_COUNT = 7;
 const PLACEHOLDER_ASSET = null;
 
 export const DEFAULT_ACT_TIMELINE = Object.freeze([
-  { shot: TIMELINE_SHOTS.OfficeWide, duration: 1200 },
-  { shot: TIMELINE_SHOTS.CameraPush, duration: 4200 },
-  { shot: TIMELINE_SHOTS.MonitorTakeover, duration: 600 },
-  { shot: TIMELINE_SHOTS.MonitorExperience, duration: 1800 },
-  { shot: TIMELINE_SHOTS.ReturnToOffice, duration: 3200 },
-  { shot: TIMELINE_SHOTS.FadeToNextAct, duration: 900 },
+  { shot: TIMELINE_SHOTS.OpeningOffice, duration: 1800 },
+  { shot: TIMELINE_SHOTS.CameraPush, duration: 5200, viewportFill: 0.42 },
+  { shot: TIMELINE_SHOTS.MonitorTakeover, duration: 1800, viewportFill: 1.1 },
+  { shot: TIMELINE_SHOTS.OpeningTitle, duration: 3000 },
 ]);
 
 const createActConfig = (actNumber, overrides = {}) => ({

@@ -21,6 +21,8 @@ const overlayElement = (key, className, label, { content = null, state = null } 
 
 export const RightMonitorOverlay = (content) => overlayElement('rightMonitor', 'right-monitor-overlay', 'RightMonitorOverlay', { content });
 
+export const LeftMonitorOverlay = () => overlayElement('leftMonitor', 'left-monitor-overlay', 'LeftMonitorOverlay');
+
 export const PortraitOverlay = (content) => overlayElement('portrait', 'portrait-overlay', 'PortraitOverlay', { content });
 
 export const WallArtOverlay = (content) => overlayElement('wallArt', 'wall-art-overlay', 'WallArtOverlay', { content });
@@ -30,6 +32,7 @@ export const DeskCandleOverlay = (state) => overlayElement('candle', 'desk-candl
 export const DeskDrinkOverlay = (state) => overlayElement('drink', 'desk-drink-overlay', 'DeskDrinkOverlay', { state });
 
 export const renderOfficeOverlays = (actConfig) => [
+  LeftMonitorOverlay(),
   RightMonitorOverlay(actConfig.rightMonitorContent),
   PortraitOverlay(actConfig.portraitImage),
   WallArtOverlay(actConfig.wallArtImage),
