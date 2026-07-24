@@ -27,7 +27,7 @@ export class SceneManager {
     this.currentScene = nextScene;
 
     if (nextScene.preload) {
-      await nextScene.preload(this.sharedContext);
+      await nextScene.preload(this.sharedContext, sceneContext);
     }
 
     const mounted = await nextScene.mount(this.rootElement, {

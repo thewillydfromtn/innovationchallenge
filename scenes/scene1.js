@@ -1,8 +1,8 @@
-import { BACKGROUND_IMAGES } from '../overlayMap.js';
+import { loadAct } from '../sceneConfig.js';
 import { renderOfficeOverlays } from '../overlays/overlayComponents.js';
 
-const OFFICE_BACKGROUND_KEY = 'masterOfficeReference';
-const OFFICE_BACKGROUND_SRC = BACKGROUND_IMAGES.office;
+const DEFAULT_ACT_NUMBER = 1;
+const assetKeyForAct = (actNumber) => `act${actNumber}Background`;
 
 /**
  * Permanent office scene architecture.
@@ -12,11 +12,13 @@ const OFFICE_BACKGROUND_SRC = BACKGROUND_IMAGES.office;
  */
 export const scene1 = {
   id: 'scene-1',
-  async preload({ assetManager }) {
-    assetManager.register(OFFICE_BACKGROUND_KEY, OFFICE_BACKGROUND_SRC, 'image');
-    await assetManager.load(OFFICE_BACKGROUND_KEY);
+  async preload({ assetManager }, { actNumber = DEFAULT_ACT_NUMBER } = {}) {
+    const actConfig = loadAct(actNumber);
+    assetManager.register(assetKeyForAct(actConfig.actNumber), actConfig.backgroundImage, 'image');
+    await assetManager.load(assetKeyForAct(actConfig.actNumber));
   },
-  mount() {
+  mount(rootElement, { actNumber = DEFAULT_ACT_NUMBER } = {}) {
+    const actConfig = loadAct(actNumber);
     const scene = document.createElement('section');
     scene.className = 'office-background-scene';
     scene.setAttribute('aria-label', 'Permanent Fortress AI office background with reusable animation overlays');
@@ -24,12 +26,12 @@ export const scene1 = {
       <div class="cinematic-canvas office-canvas" role="img" aria-label="Approved master office reference with independently positioned overlays">
         <img
           class="office-background-image"
-          src="${OFFICE_BACKGROUND_SRC}"
-          alt="Approved Fortress AI luxury high-rise office reference"
+          src="${actConfig.backgroundImage}"
+          alt="Act ${actConfig.actNumber} Fortress AI office reference"
           decoding="async"
         >
         <div class="overlay-layer" aria-label="Reusable animation overlay layer">
-          ${renderOfficeOverlays()}
+          ${renderOfficeOverlays(actConfig)}
         </div>
       </div>`;
     return scene;
