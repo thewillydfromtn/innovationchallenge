@@ -1,4 +1,9 @@
 /**
+ * @deprecated Retained only for historical overlay-based prototypes.
+ * The active film architecture uses full-frame office images and standalone
+ * full-screen HTML presentations; do not import this module in new work.
+ */
+/**
  * Opening cinematic monitor surface.
  *
  * This contains only the opening title card. Act I content, narration, and

@@ -1,3 +1,8 @@
+/**
+ * @deprecated Retained only for historical overlay-based prototypes.
+ * The active film architecture uses full-frame office images and standalone
+ * full-screen HTML presentations; do not import this module in new work.
+ */
 export const BACKGROUND_IMAGES = {
   office: 'assets/master-office-reference.png',
   finalAct: 'assets/master-final-act-reference.png',

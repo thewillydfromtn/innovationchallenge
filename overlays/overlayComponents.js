@@ -1,3 +1,8 @@
+/**
+ * @deprecated Retained only for historical overlay-based prototypes.
+ * The active film architecture uses full-frame office images and standalone
+ * full-screen HTML presentations; do not import this module in new work.
+ */
 import { OVERLAY_MAP } from '../overlayMap.js';
 import { createOverlayStyle } from './overlayStyles.js';
 
