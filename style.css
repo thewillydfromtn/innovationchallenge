@@ -79,8 +79,41 @@ body {
   object-fit: cover;
 }
 
+.right-monitor-overlay {
+  overflow: hidden;
+  background: #010204;
+  box-shadow: inset 0 0 1.6rem rgba(0, 0, 0, .95);
+}
 
-.monitor-experience-placeholder {
+.left-monitor-overlay {
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(67, 198, 255, .04) 0 1px, transparent 1px 100%),
+    linear-gradient(0deg, rgba(67, 198, 255, .03) 0 1px, transparent 1px 100%),
+    radial-gradient(circle at 32% 40%, rgba(44, 215, 255, .26), transparent 27%),
+    #061018;
+  background-size: 1rem 1rem, 1rem 1rem, auto, auto;
+  border: .06rem solid rgba(98, 210, 255, .24);
+  box-shadow: inset 0 0 1.2rem rgba(42, 168, 255, .18);
+}
+
+.left-monitor-overlay::before,
+.left-monitor-overlay::after {
+  position: absolute;
+  content: '';
+  inset: 10% 12%;
+  border: .05rem solid rgba(100, 220, 255, .22);
+  opacity: .55;
+  animation: fortress-monitor-pulse 4.8s ease-in-out infinite;
+}
+
+.left-monitor-overlay::after {
+  inset: 28% 20% 22%;
+  border-color: rgba(132, 255, 210, .18);
+  animation-delay: -1.8s;
+}
+
+.monitor-experience {
   position: absolute;
   left: 51.6%;
   top: 58.9%;
@@ -89,19 +122,56 @@ body {
   display: grid;
   place-items: center;
   opacity: 0;
-  color: rgba(255, 255, 255, .7);
-  background: rgba(5, 12, 20, .65);
-  border: .08rem solid rgba(125, 196, 255, .22);
+  color: rgba(255, 255, 255, .92);
+  background: radial-gradient(circle at center, #09131f 0%, #020407 62%, #000 100%);
+  border: .08rem solid rgba(125, 196, 255, .18);
   transform: perspective(40rem) rotateY(-5deg);
   pointer-events: none;
+  transition: opacity 900ms ease;
 }
 
-.monitor-experience-placeholder[data-active="true"] {
+.monitor-experience[data-active="true"] {
   opacity: 1;
 }
 
-.monitor-experience-placeholder__label {
-  font-size: clamp(.45rem, .75vw, .85rem);
-  letter-spacing: .08em;
+.opening-title-card {
+  display: grid;
+  gap: clamp(.2rem, .7vw, .8rem);
+  justify-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(.8rem);
+  transition: opacity 1200ms ease, transform 1200ms ease;
+}
+
+.opening-title-card[data-active="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.opening-title-card p { margin: 0; }
+
+.opening-title-card__kicker {
+  font-size: clamp(.75rem, 3.4vw, 4.8rem);
+  font-weight: 600;
+  letter-spacing: .18em;
   text-transform: uppercase;
+}
+
+.opening-title-card__subtitle {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(.5rem, 1.35vw, 2rem);
+  letter-spacing: .08em;
+}
+
+.opening-title-card__challenge {
+  font-size: clamp(.42rem, 1vw, 1.45rem);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(196, 226, 255, .78);
+}
+
+@keyframes fortress-monitor-pulse {
+  0%, 100% { opacity: .25; transform: scale(.985); }
+  50% { opacity: .68; transform: scale(1.015); }
 }

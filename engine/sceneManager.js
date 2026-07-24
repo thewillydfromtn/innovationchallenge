@@ -39,6 +39,11 @@ export class SceneManager {
       this.rootElement.append(mounted);
     }
 
+    nextScene.enter?.(this.sharedContext, {
+      ...sceneContext,
+      rootElement: this.rootElement,
+    });
+
     return nextScene;
   }
 }

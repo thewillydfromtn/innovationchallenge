@@ -1,21 +1,17 @@
 import { AnimationManager } from './animationManager.js';
 
 export const TIMELINE_SHOTS = Object.freeze({
-  OfficeWide: 'OfficeWide',
+  OpeningOffice: 'OpeningOffice',
   CameraPush: 'CameraPush',
   MonitorTakeover: 'MonitorTakeover',
-  MonitorExperience: 'MonitorExperience',
-  ReturnToOffice: 'ReturnToOffice',
-  FadeToNextAct: 'FadeToNextAct',
+  OpeningTitle: 'OpeningTitle',
 });
 
 const DEFAULT_DURATIONS = Object.freeze({
-  [TIMELINE_SHOTS.OfficeWide]: 1200,
-  [TIMELINE_SHOTS.CameraPush]: 4200,
-  [TIMELINE_SHOTS.MonitorTakeover]: 600,
-  [TIMELINE_SHOTS.MonitorExperience]: 1800,
-  [TIMELINE_SHOTS.ReturnToOffice]: 3200,
-  [TIMELINE_SHOTS.FadeToNextAct]: 900,
+  [TIMELINE_SHOTS.OpeningOffice]: 1800,
+  [TIMELINE_SHOTS.CameraPush]: 5200,
+  [TIMELINE_SHOTS.MonitorTakeover]: 1800,
+  [TIMELINE_SHOTS.OpeningTitle]: 3000,
 });
 
 const wait = (duration) => new Promise((resolve) => {
@@ -59,8 +55,10 @@ export class TimelineEngine {
 
   async playStep(step, context) {
     switch (step.shot) {
-      case TIMELINE_SHOTS.OfficeWide:
+      case TIMELINE_SHOTS.OpeningOffice:
         this.cameraManager.beginOfficeView();
+        this.setMonitorExperienceState(false, context);
+        this.setOpeningTitleState(false, context);
         await wait(step.duration);
         break;
       case TIMELINE_SHOTS.CameraPush:
@@ -69,17 +67,11 @@ export class TimelineEngine {
         break;
       case TIMELINE_SHOTS.MonitorTakeover:
         this.setMonitorExperienceState(true, context);
-        await wait(step.duration);
-        break;
-      case TIMELINE_SHOTS.MonitorExperience:
-        await wait(step.duration);
-        break;
-      case TIMELINE_SHOTS.ReturnToOffice:
-        this.setMonitorExperienceState(false, context);
-        this.currentController = this.cameraManager.returnToOffice(step);
+        this.currentController = this.cameraManager.pushToRightMonitor(step);
         await this.currentController.finished;
         break;
-      case TIMELINE_SHOTS.FadeToNextAct:
+      case TIMELINE_SHOTS.OpeningTitle:
+        this.setOpeningTitleState(true, context);
         await wait(step.duration);
         break;
       default:
@@ -101,5 +93,10 @@ export class TimelineEngine {
   setMonitorExperienceState(isActive, context) {
     const root = context.rootElement ?? this.rootElement ?? document;
     root.querySelector('[data-monitor-experience]')?.setAttribute('data-active', String(isActive));
+  }
+
+  setOpeningTitleState(isActive, context) {
+    const root = context.rootElement ?? this.rootElement ?? document;
+    root.querySelector('[data-opening-title]')?.setAttribute('data-active', String(isActive));
   }
 }

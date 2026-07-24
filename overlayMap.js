@@ -27,6 +27,14 @@ export const OVERLAY_MAP = {
     height: 20.6,
     transform: 'perspective(40rem) rotateY(-5deg)',
   },
+  leftMonitor: {
+    component: 'LeftMonitorOverlay',
+    left: 30.6,
+    top: 58.7,
+    width: 18.2,
+    height: 18.7,
+    transform: 'perspective(40rem) rotateY(5deg)',
+  },
   candle: {
     component: 'DeskCandleOverlay',
     left: 58,
