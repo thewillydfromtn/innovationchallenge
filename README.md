@@ -17,7 +17,7 @@ Opening office image
 → End credits
 ```
 
-Office moments are full-frame cinematic still images. Each approved still is expected to already include William's pose, the Kerri portrait, wall artwork, drink, candle, monitor previews, and every other office detail. Runtime HTML overlays are deprecated and are not part of the active film path.
+Office moments are full-frame cinematic still images. Each approved still is expected to already include William's pose, the Kerri portrait, wall artwork, drink, candle, desktop details, and every other office detail. No runtime HTML layers are added on top of the office stills.
 
 Each act presentation is intended to live in its own standalone folder, for example:
 
@@ -33,7 +33,7 @@ film/
   act7/
 ```
 
-Presentations own the entire browser viewport. They are not embedded into a fake monitor or aligned to monitor geometry.
+Presentations own the entire browser viewport after a fade to black; they are never embedded into or aligned with details inside an office still.
 
 ## Project Structure
 
@@ -51,11 +51,7 @@ Presentations own the entire browser viewport. They are not embedded into a fake
       assetManager.js
       filmPlayer.js
       animationManager.js
-      camera.js              # deprecated prototype support
-      sceneManager.js         # deprecated prototype support
-      timelineEngine.js       # deprecated prototype support
-  overlays/                  # deprecated prototype support
-  scenes/                    # deprecated prototype support
+      sceneManager.js
 ```
 
 ## Active Modules
@@ -65,16 +61,9 @@ Presentations own the entire browser viewport. They are not embedded into a fake
 - `engine/filmPlayer.js` sequences office stills, fade-to-black transitions, full-screen presentation frames, and credits.
 - `style.css` defines full-viewport film frames, crossfades, and the subtle whole-image office push.
 
-## Deprecated Prototype Modules
+## Presentation Rules
 
-The former overlay-based office system is retained only to avoid abrupt deletion while the production architecture changes. Do not use these modules for new film work:
-
-- monitor overlay alignment
-- fake monitor overlay screens
-- right-monitor camera push/zoom calculations
-- office element overlays for portrait, wall art, drink, candle, or monitors
-- runtime positioning of office objects
-- layered HTML recreation of the office
+Office stills are flat static images. The only motion allowed during an office beat is the configurable whole-image push defined in `sceneConfig.js`; transitions between office stills and presentations are fade-out/fade-in cuts through black.
 
 ## View Online
 

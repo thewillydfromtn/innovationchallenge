@@ -12,9 +12,9 @@ This section is reserved for the film's approved visual language, style referenc
 
 This section is reserved for the canonical office geography, spatial relationships, and location notes once the layout is formally specified.
 
-## Camera Rules
+## Office Image Motion
 
-This section is reserved for the production's camera grammar, framing guidelines, and movement rules once those standards are formally defined.
+Office beats are flat static stills. The only allowed movement is an optional subtle whole-image push between 5% and 10% scale.
 
 ## Character Rules
 
@@ -28,9 +28,9 @@ This section is reserved for canonical prop tracking, placement, usage, and cont
 
 This section is reserved for the approved lighting approach, continuity requirements, and scene-specific lighting notes once those standards are formally established.
 
-## Monitor Behavior
+## Presentation Display
 
-This section is reserved for authoritative monitor, screen, and display behavior rules once the required on-screen content and interactions are formally specified.
+Standalone presentations occupy the full browser viewport after a fade through black. Office stills are treated as flat static images rather than interactive or layered surfaces.
 
 ## Scene Structure
 
@@ -42,11 +42,10 @@ This section is reserved for animation principles, motion constraints, and conti
 
 ## Technical Architecture
 
-The approved production model is a self-playing GitHub Pages film made from a sequence of full-frame office still images and standalone full-screen HTML presentations. Office images are static cinematic frames that already contain William, the Kerri portrait, wall artwork, drink, candle, monitor previews, and all other office details. Runtime overlays, monitor geometry alignment, fake monitor screens, and layered HTML recreations of office objects are retired from active use.
+The approved production model is a self-playing GitHub Pages film made from a sequence of full-frame office still images and standalone full-screen HTML presentations. Office images are static cinematic frames that already contain William, the Kerri portrait, wall artwork, drink, candle, desktop details, and all other office details. No runtime HTML layers may be added on top of objects inside those stills.
 
-The transition grammar is intentionally simple: show an office still for a configurable duration, apply only a subtle whole-image push when desired, fade to black, then fade into the next standalone presentation. Presentations own the entire browser viewport and are not embedded inside monitor artwork. When a presentation finishes, the player fades to black and advances to the next office still.
+The transition grammar is intentionally simple: show an office still for a configurable duration, apply only a subtle whole-image push when desired, fade to black, then fade into the next standalone presentation. Presentations own the entire browser viewport. When a presentation finishes, the player fades to black and advances to the next office still.
 
-Historical overlay and monitor-alignment modules may remain in the repository while dependent prototype code is retired, but they must be treated as deprecated and must not be used for new production work.
 
 ## Asset Inventory
 
