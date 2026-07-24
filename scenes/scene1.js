@@ -1,5 +1,6 @@
 import { loadAct } from '../sceneConfig.js';
 import { renderOfficeOverlays } from '../overlays/overlayComponents.js';
+import { renderMonitorExperiencePlaceholder } from '../engine/monitorExperience.js';
 
 const DEFAULT_ACT_NUMBER = 1;
 const assetKeyForAct = (actNumber) => `act${actNumber}Background`;
@@ -33,6 +34,7 @@ export const scene1 = {
         <div class="overlay-layer" aria-label="Reusable animation overlay layer">
           ${renderOfficeOverlays(actConfig)}
         </div>
+        ${renderMonitorExperiencePlaceholder()}
       </div>`;
     return scene;
   },
