@@ -10,12 +10,12 @@ const createLayer = (className, label, children = '') => `
   </div>
 `;
 
-const createBooks = () => Array.from({ length: 64 }, (_, index) => {
+const createBooks = () => Array.from({ length: 76 }, (_, index) => {
   const tone = ['umber', 'charcoal', 'wine', 'sand', 'copper'][index % 5];
   return `<span class="book book-${tone}" aria-hidden="true"></span>`;
 }).join('');
 
-const createShelfRows = () => Array.from({ length: 4 }, (_, index) => `
+const createShelfRows = () => Array.from({ length: 5 }, (_, index) => `
   <div class="book-row book-row-${index + 1}" aria-hidden="true">
     ${createBooks()}
   </div>
@@ -45,6 +45,9 @@ export const scene1 = {
                 <div class="tower tower-two" aria-hidden="true"></div>
                 <div class="tower tower-three" aria-hidden="true"></div>
                 <div class="tower tower-four" aria-hidden="true"></div>
+                <div class="tower tower-five" aria-hidden="true"></div>
+                <div class="tower tower-six" aria-hidden="true"></div>
+                <div class="tower tower-seven" aria-hidden="true"></div>
               </div>
               <span class="window-mullion mullion-one" aria-hidden="true"></span>
               <span class="window-mullion mullion-two" aria-hidden="true"></span>
