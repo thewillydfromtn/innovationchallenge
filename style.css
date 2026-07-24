@@ -62,10 +62,11 @@ body {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  perspective: 900px;
+  perspective: 1300px;
   background:
-    linear-gradient(90deg, rgba(20, 36, 55, 0.95) 0 31%, transparent 31%),
-    linear-gradient(105deg, #21130d 0 58%, #271911 58% 100%);
+    linear-gradient(90deg, rgba(8, 20, 36, 0.98) 0 37%, transparent 37%),
+    radial-gradient(circle at 74% 41%, rgba(221, 134, 70, 0.2), transparent 28%),
+    linear-gradient(105deg, #1d110c 0 61%, #2d1c13 61% 100%);
 }
 
 .set-layer,
@@ -84,10 +85,10 @@ body {
 
 .back-wall {
   position: absolute;
-  left: 30%;
-  top: 7%;
-  width: 46%;
-  height: 55%;
+  left: 34%;
+  top: 6%;
+  width: 43%;
+  height: 58%;
   background: linear-gradient(180deg, #2f2017, #22140f);
   border-left: 0.15rem solid rgba(255, 211, 148, 0.08);
   border-right: 0.15rem solid rgba(0, 0, 0, 0.35);
@@ -106,22 +107,22 @@ body {
 
 .floor {
   position: absolute;
-  left: 20%;
-  right: -8%;
-  bottom: -5%;
-  height: 48%;
-  clip-path: polygon(12% 0, 78% 0, 100% 100%, 0 100%);
+  left: 4%;
+  right: -10%;
+  bottom: -8%;
+  height: 56%;
+  clip-path: polygon(30% 0, 73% 0, 100% 100%, 0 100%);
   background:
     linear-gradient(100deg, rgba(255, 210, 140, 0.12), transparent 30%),
     repeating-linear-gradient(102deg, #3a2518 0 1.6rem, #312016 1.6rem 3.2rem);
 }
 
 .window-layer {
-  left: 0;
-  top: 6%;
-  width: 34%;
-  height: 74%;
-  transform: skewY(-6deg);
+  left: -1%;
+  top: 0;
+  width: 39%;
+  height: 84%;
+  transform: skewY(-5deg);
   transform-origin: right top;
 }
 
@@ -129,8 +130,10 @@ body {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  border-right: 0.45rem solid #191b1d;
-  background: linear-gradient(180deg, #07111d, #111d2a 55%, #07090c);
+  border-right: 0.22rem solid #111417;
+  background:
+    linear-gradient(90deg, rgba(38, 85, 138, 0.22), transparent 18% 82%, rgba(104, 30, 125, 0.18)),
+    linear-gradient(180deg, #061429, #0d2240 53%, #05080d);
 }
 
 .skyline-layer {
@@ -155,17 +158,20 @@ body {
     linear-gradient(180deg, #162638, #070b10);
 }
 
-.tower-one { left: 8%; height: 42%; }
-.tower-two { left: 24%; height: 58%; }
-.tower-three { left: 48%; height: 36%; }
-.tower-four { left: 68%; height: 50%; }
+.tower-one { left: -4%; height: 54%; width: 13%; }
+.tower-two { left: 11%; height: 70%; width: 12%; }
+.tower-three { left: 27%; height: 49%; width: 14%; }
+.tower-four { left: 44%; height: 63%; width: 11%; }
+.tower-five { left: 58%; height: 45%; width: 13%; }
+.tower-six { left: 75%; height: 58%; width: 12%; }
+.tower-seven { left: 91%; height: 68%; width: 11%; }
 
 .window-mullion {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 0.22rem;
-  background: rgba(200, 217, 222, 0.35);
+  width: 0.12rem;
+  background: rgba(210, 226, 232, 0.28);
 }
 
 .mullion-one { left: 25%; }
@@ -173,10 +179,10 @@ body {
 .mullion-three { left: 75%; }
 
 .bookshelf-layer {
-  left: 34%;
-  top: 10%;
-  width: 36%;
-  height: 39%;
+  left: 30%;
+  top: 9%;
+  width: 41%;
+  height: 45%;
   padding: 1.1% 1.2%;
   background: linear-gradient(90deg, #27170f, #4a2d1c 45%, #20120c);
   border: 0.35rem solid #160d09;
@@ -186,8 +192,8 @@ body {
 .books-layer {
   inset: 4% 3%;
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  gap: 6%;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 4%;
 }
 
 .book-row {
@@ -198,9 +204,9 @@ body {
 }
 
 .book {
-  width: 1.2%;
-  min-width: 0.22rem;
-  height: 74%;
+  width: 1.15%;
+  min-width: 0.18rem;
+  height: 78%;
   display: block;
   box-shadow: inset 0.08rem 0 rgba(255, 255, 255, 0.08);
 }
@@ -279,10 +285,10 @@ body {
 }
 
 .portrait-layer {
-  left: 48%;
-  top: 16%;
-  width: 12%;
-  height: 22%;
+  left: 55%;
+  top: 15%;
+  width: 13%;
+  height: 24%;
   z-index: 4;
 }
 
@@ -302,10 +308,10 @@ body {
 }
 
 .couch-layer {
-  left: 39%;
-  top: 51%;
-  width: 28%;
-  height: 17%;
+  left: 50%;
+  top: 50%;
+  width: 25%;
+  height: 16%;
   z-index: 5;
 }
 
@@ -313,20 +319,21 @@ body {
 .couch-seat,
 .couch-arm {
   position: absolute;
-  background: linear-gradient(180deg, #211513, #080606);
-  border: 0.16rem solid #33201b;
+  background: radial-gradient(circle at 40% 28%, rgba(118, 67, 45, 0.5), transparent 18%), linear-gradient(180deg, #2a1714, #070505);
+  border: 0.16rem solid #3d241c;
+  box-shadow: inset 0 0.45rem 1rem rgba(255, 155, 82, 0.08), 0 0.7rem 1.3rem rgba(0, 0, 0, 0.55);
 }
 
-.couch-back { left: 6%; top: 5%; width: 88%; height: 55%; border-radius: 1.2rem 1.2rem 0.4rem 0.4rem; }
-.couch-seat { left: 8%; bottom: 8%; width: 84%; height: 38%; border-radius: 0.35rem; }
-.couch-arm { top: 20%; width: 12%; height: 66%; border-radius: 1rem; }
+.couch-back { left: 7%; top: 3%; width: 86%; height: 58%; border-radius: 1.5rem 1.5rem 0.45rem 0.45rem; }
+.couch-seat { left: 9%; bottom: 8%; width: 82%; height: 41%; border-radius: 0.55rem; }
+.couch-arm { top: 15%; width: 14%; height: 72%; border-radius: 1.35rem; }
 .couch-arm-left { left: 0; }
 .couch-arm-right { right: 0; }
 .couch-tufts {
   position: absolute;
   inset: 18% 14% 42%;
-  background-image: radial-gradient(circle, rgba(137, 87, 66, 0.45) 0 0.12rem, transparent 0.14rem);
-  background-size: 1.2rem 0.9rem;
+  background-image: radial-gradient(circle, rgba(210, 133, 89, 0.55) 0 0.13rem, rgba(0,0,0,.4) 0.14rem 0.19rem, transparent 0.2rem);
+  background-size: 1.05rem 0.78rem;
 }
 
 .side-table-layer { left: 69%; top: 57%; width: 7%; height: 12%; z-index: 5; }
@@ -340,11 +347,11 @@ body {
 
 .side-table-candle-layer { left: 68.7%; top: 55.6%; width: 2.2%; height: 4.8%; z-index: 8; }
 
-.wall-art-layer { right: 8%; top: 24%; width: 10%; height: 18%; z-index: 5; transform: skewY(8deg); }
+.wall-art-layer { right: 7%; top: 20%; width: 12%; height: 23%; z-index: 5; transform: skewY(8deg); }
 .wall-art-frame { display: grid; place-items: center; color: #e8d2a3; font: 700 clamp(0.42rem, 0.95vw, 0.84rem)/1 Arial, sans-serif; letter-spacing: 0.12em; background: linear-gradient(135deg, #6b4a2d, #19110d); }
 .wall-art-frame::before { content: ''; position: absolute; inset: 0.45rem; border: 0.08rem solid rgba(236, 194, 122, 0.5); }
 
-.desk-layer { left: 20%; bottom: 9%; width: 48%; height: 25%; z-index: 12; }
+.desk-layer { left: 13%; bottom: 4%; width: 58%; height: 31%; z-index: 12; }
 .desk-back { position: absolute; left: 9%; top: 5%; width: 78%; height: 22%; background: #4c2b16; transform: perspective(20rem) rotateX(58deg); }
 .desk-top { position: absolute; left: 2%; top: 16%; width: 93%; height: 28%; background: linear-gradient(105deg, #8a552e, #3b2112); clip-path: polygon(7% 0, 100% 5%, 90% 100%, 0 82%); box-shadow: 0 0.8rem 1.2rem rgba(0, 0, 0, 0.35); }
 .desk-front { position: absolute; left: 5%; top: 39%; width: 86%; height: 55%; background: linear-gradient(90deg, #2a170d, #6b3d1f 50%, #24130b); clip-path: polygon(0 0, 100% 8%, 93% 100%, 4% 90%); }
@@ -352,12 +359,12 @@ body {
 .keyboard { position: absolute; left: 38%; top: 28%; width: 19%; height: 5%; background: repeating-linear-gradient(90deg, #111 0 0.25rem, #2e3033 0.25rem 0.34rem); transform: skewX(-8deg); }
 .mouse { position: absolute; left: 61%; top: 29%; width: 4%; height: 6%; background: #202124; border-radius: 50%; }
 
-.monitors-layer { left: 31%; bottom: 32%; width: 35%; height: 18%; z-index: 14; }
-.monitor { position: absolute; top: 0; width: 45%; height: 70%; background: linear-gradient(135deg, #172637, #05070a); border: 0.35rem solid #070707; border-radius: 0.25rem; box-shadow: 0 0 1.4rem rgba(83, 163, 220, 0.22); }
+.monitors-layer { left: 26%; bottom: 34%; width: 44%; height: 22%; z-index: 14; }
+.monitor { position: absolute; top: 0; width: 45%; height: 70%; background: linear-gradient(135deg, #172637, #05070a); border: 0.35rem solid #070707; border-radius: 0.25rem; box-shadow: 0 0 2.2rem rgba(83, 163, 220, 0.34), 0 0.8rem 1.4rem rgba(0,0,0,.55); }
 .monitor::after { content: ''; position: absolute; left: 45%; bottom: -32%; width: 10%; height: 32%; background: #080808; }
 .monitor-left { left: 0; transform: rotateY(10deg); }
 .monitor-right { right: 0; transform: rotateY(-6deg); }
-.monitor-glow { position: absolute; inset: -45% -20%; background: radial-gradient(ellipse at 70% 40%, rgba(98, 165, 210, 0.2), transparent 55%); pointer-events: none; }
+.monitor-glow { position: absolute; inset: -45% -20%; background: radial-gradient(ellipse at 70% 40%, rgba(98, 165, 210, 0.34), transparent 55%); pointer-events: none; }
 
 .desk-candle-layer { left: 58%; bottom: 28%; width: 2.4%; height: 6%; z-index: 16; }
 
