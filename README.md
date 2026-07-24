@@ -11,10 +11,8 @@ Reusable architecture for a cinematic HTML short film built with modern ES6 modu
   script.js
   README.md
   assets/
-      office/
-      portraits/
-      props/
-      ui/
+      reference/
+          master-office-reference.png
   scenes/
       scene1.js
   engine/
@@ -30,7 +28,7 @@ Reusable architecture for a cinematic HTML short film built with modern ES6 modu
 - `engine/camera.js` applies smooth pan and zoom transforms to the camera stage.
 - `engine/animationManager.js` runs timeline-based animations with reusable easing functions.
 - `engine/assetManager.js` registers, preloads, caches, and retrieves reusable assets.
-- `scenes/scene1.js` is a placeholder title scene that verifies the engine is wired together. It intentionally does not build the office yet.
+- `scenes/scene1.js` mounts the approved master office reference image as the permanent background and renders only reusable overlays (`RightMonitor`, `PortraitOverlay`, `WallArtOverlay`, `DeskCandle`, `DeskDrink`, and `William`) for future animation.
 
 ## View Online
 

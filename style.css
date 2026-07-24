@@ -1,39 +1,120 @@
 :root {
   --canvas-w: min(96vw, 1536px);
-  --gold: #c48642;
-  --wall: #332118;
-  --wood: #4a2815;
   --black: #050403;
 }
+
 * { box-sizing: border-box; }
 html, body { margin: 0; min-height: 100%; }
-body { min-height: 100vh; overflow: hidden; background: #030202; color: #fff; font-family: Inter, Arial, Helvetica, sans-serif; }
-.film-shell { min-height: 100vh; display: grid; place-items: center; background: radial-gradient(circle at 50% 28%, #26140b 0%, #050303 66%, #000 100%); overflow: hidden; }
-.camera-stage { width: 100%; min-height: 100vh; display: grid; place-items: center; transform-origin: center center; will-change: transform; }
-.scene-root, .apartment-set-scene { width: 100%; min-height: 100vh; display: grid; place-items: center; }
-.cinematic-canvas { position: relative; width: var(--canvas-w); aspect-ratio: 16 / 9; overflow: hidden; border: .12rem solid #20130d; border-radius: .25rem; box-shadow: 0 2rem 7rem rgba(0,0,0,.85); background: #120b08; }
-.office-set, .set-component { position: absolute; inset: 0; }
-.background-component { background: radial-gradient(circle at 86% 49%, rgba(211,91,154,.22), transparent 18%), radial-gradient(circle at 64% 8%, rgba(236,133,48,.18), transparent 33%), linear-gradient(90deg, #04101d 0 20%, #1d120d 20% 100%); }
-.left-wall-component { right: 80%; background: linear-gradient(90deg, #02070e, #081322); }
-.back-wall-component { left: 42%; top: 5%; width: 31%; height: 59%; background: linear-gradient(180deg, #35251c, #241811); box-shadow: inset 0 0 5rem rgba(0,0,0,.3); }
-.right-wall-component { left: 73%; top: 3%; width: 30%; height: 67%; background: linear-gradient(115deg, #43281a, #1a100d 74%); transform: skewY(-4deg); transform-origin: left top; }
-.floor-component { top: 59%; background: repeating-linear-gradient(102deg, #3b2113 0 2.2rem, #2c190f 2.2rem 4.4rem); clip-path: polygon(16% 0, 84% 0, 100% 100%, 0 100%); }
-.window-component { left: 0; top: 0; width: 21%; height: 72%; border-right: .35rem solid #101010; box-shadow: .7rem 0 1.8rem rgba(0,0,0,.6); overflow: hidden; }
-.window-glass { position: absolute; inset: 0; background: linear-gradient(180deg, #06162c, #0c213b 62%, #02050a); }
-.mullion { position: absolute; top: 0; bottom: 0; width: .22rem; background: #162535; box-shadow: 0 0 .6rem #44627c; } .m1{left:28%}.m2{left:55%}.m3{left:82%}
-.skyline-component { position: absolute; inset: 7% 0 0; }
-.tower,.batman-building { position: absolute; bottom: 8%; background: repeating-linear-gradient(180deg, rgba(255,215,128,.88) 0 .18rem, transparent .18rem .75rem), linear-gradient(#162338,#05080d); }
-.batman-building{left:20%;width:26%;height:72%;}.tower{width:15%;}.t1{left:-3%;height:39%}.t2{left:50%;height:54%}.t3{left:74%;height:44%}
-.spire{position:absolute;bottom:80%;width:.25rem;height:20%;background:#e7efff;box-shadow:0 0 .45rem #fff}.spire-one{left:27%}.spire-two{left:40%}.river-glow{position:absolute;left:0;right:0;bottom:0;height:15%;background:linear-gradient(90deg,rgba(240,170,84,.18),rgba(75,116,164,.22));}
-.bookshelf-component { left: 21%; top: 8%; width: 23%; height: 49%; padding: 2.3%; background: linear-gradient(90deg,#1a0d07,#5a3218 45%,#160b06); border: .45rem solid #110806; box-shadow: inset 0 0 2rem #000, 0 0 1.2rem rgba(226,113,42,.2); }
-.shelf-lights{position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(244,139,48,.34) 0 3%,transparent 3% 20%)}
-.books-component{position:absolute;inset:23% 5% 5%;display:grid;grid-template-rows:repeat(5,1fr);gap:4%}.book-row{display:flex;align-items:end;gap:.12rem;border-bottom:.18rem solid #120905}.book{width:1.1%;min-width:.12rem;height:76%;box-shadow:inset .05rem 0 rgba(255,255,255,.12)}.book:nth-child(4n){height:92%}.book:nth-child(5n){height:58%}.book-oxblood{background:#5a1718}.book-charcoal{background:#222226}.book-walnut{background:#603016}.book-copper{background:#9d5527}.book-linen{background:#b1844d}
-.emmett-kelly-component{position:absolute;left:7%;top:4%;width:25%;height:18%}.clown-face{position:absolute;left:38%;top:23%;width:24%;height:38%;border-radius:50%;background:#d8b98d}.clown-hat{position:absolute;left:30%;top:0;width:40%;height:26%;background:#17110c;border-radius:50% 50% 10% 10%}.clown-suit{position:absolute;left:25%;bottom:0;width:50%;height:43%;background:linear-gradient(90deg,#1e2b3c,#6b2419);border-radius:45% 45% 8% 8%}
-.durham-quote-component{position:absolute;left:36%;top:6%;width:37%;height:15%;display:grid;place-items:center;text-align:center;background:#d9ad72;color:#130b06;border:.25rem solid #5e3216;font-family:Georgia,serif}.durham-quote-component p{margin:0;font-weight:700;font-size:clamp(.42rem,.7vw,.72rem)}.durham-quote-component small{font-size:clamp(.3rem,.48vw,.48rem)}
-.portrait-component{left:54%;top:17%;width:12%;height:27%}.portrait-frame,.wall-art-frame{position:absolute;inset:0;padding:.5rem;background:linear-gradient(135deg,#c1843e,#27140a);box-shadow:0 .7rem 1.6rem #000}.portrait-artwork{height:100%;background:radial-gradient(circle at 50% 30%,#80624c 0 13%,transparent 14%),linear-gradient(150deg,#141312,#2b2119)}
-.wall-art-component{left:86%;top:17%;width:12%;height:30%;transform:skewY(-5deg)}.wall-art-frame{background:linear-gradient(135deg,#3e2416,#b26e4e)}.wall-art-text{height:100%;border:.08rem solid rgba(255,218,157,.22)}
-.couch-component{left:47%;top:43%;width:25%;height:18%}.couch-back,.couch-seat,.couch-arm{position:absolute;background:linear-gradient(#3b1f16,#090606);border:.16rem solid #633820;box-shadow:inset 0 .5rem 1rem rgba(230,145,82,.16),0 .8rem 1.3rem #000}.couch-back{left:8%;top:4%;width:84%;height:58%;border-radius:1.6rem}.couch-seat{left:10%;bottom:8%;width:80%;height:42%;border-radius:.5rem}.couch-arm{top:14%;width:15%;height:76%;border-radius:1.4rem}.couch-arm.left{left:0}.couch-arm.right{right:0}.couch-tufts{position:absolute;inset:18% 15% 42%;background-image:radial-gradient(circle,rgba(213,132,76,.7) 0 .12rem,#100707 .13rem .2rem,transparent .21rem);background-size:1rem .7rem}
-.side-table-component{left:72%;top:49%;width:6%;height:15%}.side-table-top{position:absolute;top:12%;left:8%;width:84%;height:18%;background:#734720;border-radius:50%}.side-table-body{position:absolute;left:18%;top:27%;width:64%;height:65%;background:linear-gradient(90deg,#1b0f08,#70431e,#1b0f08)}.lamp-component{left:71%;top:39%;width:5%;height:15%}.lamp-shade{position:absolute;top:0;left:13%;width:74%;height:35%;background:#d89b55;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);box-shadow:0 0 2.3rem #d99147}.lamp-stem{position:absolute;left:48%;top:34%;width:5%;height:55%;background:#b17436}.lamp-base{position:absolute;left:27%;bottom:0;width:46%;height:8%;background:#8c592d;border-radius:50%}
-.desk-component{left:0;bottom:0;width:100%;height:31%;z-index:20}.desk-surface{position:absolute;left:0;top:0;width:100%;height:55%;background:linear-gradient(100deg,#27140b,#6a3519 50%,#1f1008);clip-path:polygon(10% 0,88% 0,100% 100%,0 100%)}.desk-front{position:absolute;left:9%;top:45%;width:82%;height:55%;background:#120905}.keyboard{position:absolute;left:37%;top:54%;width:29%;height:9%;background:repeating-linear-gradient(90deg,#0d0d0e 0 .38rem,#333 .38rem .48rem);border-radius:.18rem}.mouse{position:absolute;left:69%;top:51%;width:4%;height:12%;background:#171719;border-radius:50%}
-.monitors-component{left:15%;top:59%;width:63%;height:27%;z-index:26}.monitor{position:absolute;top:0;width:48%;height:84%;filter:drop-shadow(0 .8rem 1.2rem #000)}.left-monitor{left:0;transform:perspective(40rem) rotateY(8deg)}.right-monitor{right:0;transform:perspective(40rem) rotateY(-5deg)}.monitor-bezel{position:absolute;inset:0;border:.42rem solid #070707;border-radius:.35rem;background:#090a0c}.empty-screen{background:linear-gradient(135deg,#18191b,#030304)}.monitor::after{content:'';position:absolute;left:46%;bottom:-21%;width:9%;height:22%;background:#070707}.dashboard{height:100%;background:#dedbd5;color:#283044;font-size:clamp(.34rem,.55vw,.55rem);padding:2%;overflow:hidden}.dashboard strong{color:#143b9f}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:2%;margin:2% 0}.cards span{background:#f4f2ef;border-left:.18rem solid #2449b9;padding:8% 4%;font-weight:700}.dashboard-row{display:grid;grid-template-columns:2fr 1fr .7fr;border-top:1px solid #b9b9b9;padding:1.2% 0}
-.desk-candle-component{left:58%;top:72%;width:3%;height:8%;z-index:30}.desk-candle-placeholder{position:absolute;inset:0;border:1px dashed rgba(255,220,160,.45);background:rgba(255,220,160,.08)}.desk-drink-component,.william-character-component{display:none}.ambient-lighting-component{pointer-events:none}.track-light{position:absolute;top:1.5%;width:.8%;height:3.5%;background:#0a0807;box-shadow:0 .7rem 1.4rem rgba(255,138,55,.5)}.light-one{left:24%}.light-two{left:49%}.light-three{left:69%}.pink-accent-light{position:absolute;right:5%;top:51%;width:5%;height:21%;background:radial-gradient(circle,rgba(255,45,169,.7),transparent 60%)}
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #030202;
+  color: #fff;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+.film-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #000;
+  overflow: hidden;
+}
+
+.camera-stage {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.scene-root,
+.office-background-scene {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.cinematic-canvas {
+  position: relative;
+  width: var(--canvas-w);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: .12rem solid #20130d;
+  border-radius: .25rem;
+  box-shadow: 0 2rem 7rem rgba(0, 0, 0, .85);
+  background: var(--black);
+}
+
+.office-background-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.overlay-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.office-overlay {
+  position: absolute;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.right-monitor-overlay {
+  left: 51.6%;
+  top: 58.9%;
+  width: 26.5%;
+  height: 20.6%;
+  transform: perspective(40rem) rotateY(-5deg);
+}
+
+.portrait-overlay {
+  left: 54%;
+  top: 17%;
+  width: 12%;
+  height: 27%;
+}
+
+.wall-art-overlay {
+  left: 86%;
+  top: 17%;
+  width: 12%;
+  height: 30%;
+  transform: skewY(-5deg);
+}
+
+.desk-candle-overlay {
+  left: 58%;
+  top: 72%;
+  width: 3%;
+  height: 8%;
+  z-index: 30;
+}
+
+.desk-drink-overlay {
+  left: 67%;
+  top: 72%;
+  width: 3.2%;
+  height: 8%;
+  z-index: 30;
+}
+
+.william-overlay {
+  left: 41%;
+  top: 41%;
+  width: 13%;
+  height: 37%;
+  z-index: 25;
+}
