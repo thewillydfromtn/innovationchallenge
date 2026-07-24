@@ -42,7 +42,11 @@ This section is reserved for animation principles, motion constraints, and conti
 
 ## Technical Architecture
 
-The approved office is rendered from `assets/reference/master-office-reference.png` as a single permanent background image. The application must not recreate permanent room elements such as walls, floor, bookshelf, books, couch, desk, skyline, window, lighting, furniture, decorations, or permanent room artwork with HTML/CSS/SVG. Scene HTML is limited to reusable overlay components (`RightMonitor`, `PortraitOverlay`, `WallArtOverlay`, `DeskCandle`, `DeskDrink`, and `William`) that are independently positioned above the background and prepared for future animation. The engine, scene manager, camera manager, animation manager, asset manager, GitHub Pages setup, and documentation remain part of the production architecture.
+The approved production model is a self-playing GitHub Pages film made from a sequence of full-frame office still images and standalone full-screen HTML presentations. Office images are static cinematic frames that already contain William, the Kerri portrait, wall artwork, drink, candle, monitor previews, and all other office details. Runtime overlays, monitor geometry alignment, fake monitor screens, and layered HTML recreations of office objects are retired from active use.
+
+The transition grammar is intentionally simple: show an office still for a configurable duration, apply only a subtle whole-image push when desired, fade to black, then fade into the next standalone presentation. Presentations own the entire browser viewport and are not embedded inside monitor artwork. When a presentation finishes, the player fades to black and advances to the next office still.
+
+Historical overlay and monitor-alignment modules may remain in the repository while dependent prototype code is retired, but they must be treated as deprecated and must not be used for new production work.
 
 ## Asset Inventory
 

@@ -1,6 +1,39 @@
 # Fortress AI Innovation Challenge
 
-Reusable architecture for a cinematic HTML short film built with modern ES6 modules and no frontend framework.
+Static architecture for a self-playing cinematic HTML short film built with modern ES modules and no frontend framework.
+
+## Production Architecture
+
+The GitHub Pages site plays from beginning to end without menus, buttons, interaction, or playback controls. The active flow is:
+
+```text
+Opening office image
+→ Act I full-screen HTML presentation
+→ Office image after Act I
+→ Act II full-screen HTML presentation
+→ Office image after Act II
+→ ...
+→ Final office image
+→ End credits
+```
+
+Office moments are full-frame cinematic still images. Each approved still is expected to already include William's pose, the Kerri portrait, wall artwork, drink, candle, monitor previews, and every other office detail. Runtime HTML overlays are deprecated and are not part of the active film path.
+
+Each act presentation is intended to live in its own standalone folder, for example:
+
+```text
+film/
+  opening/
+  act1/
+  act2/
+  act3/
+  act4/
+  act5/
+  act6/
+  act7/
+```
+
+Presentations own the entire browser viewport. They are not embedded into a fake monitor or aligned to monitor geometry.
 
 ## Project Structure
 
@@ -9,47 +42,47 @@ Reusable architecture for a cinematic HTML short film built with modern ES6 modu
   index.html
   style.css
   script.js
+  sceneConfig.js
   README.md
   assets/
-      reference/
-          master-office-reference.png
-  scenes/
-      scene1.js
+      master-office-reference.png
+      master-final-act-reference.png
   engine/
-      camera.js
-      sceneManager.js
-      animationManager.js
       assetManager.js
+      filmPlayer.js
+      animationManager.js
+      camera.js              # deprecated prototype support
+      sceneManager.js         # deprecated prototype support
+      timelineEngine.js       # deprecated prototype support
+  overlays/                  # deprecated prototype support
+  scenes/                    # deprecated prototype support
 ```
 
-## Architecture
+## Active Modules
 
-- `engine/sceneManager.js` registers scene modules, mounts the active scene, and cleans up when changing scenes.
-- `engine/camera.js` applies smooth pan and zoom transforms to the camera stage.
-- `engine/animationManager.js` runs timeline-based animations with reusable easing functions.
-- `engine/assetManager.js` registers, preloads, caches, and retrieves reusable assets.
-- `scenes/scene1.js` mounts the approved master office reference image as the permanent background and renders only reusable overlays (`RightMonitor`, `PortraitOverlay`, `WallArtOverlay`, `DeskCandle`, `DeskDrink`, and `William`) for future animation.
+- `script.js` boots the self-playing film, preloads office images, and starts playback.
+- `sceneConfig.js` declares the office-image beats and future standalone presentation slots.
+- `engine/filmPlayer.js` sequences office stills, fade-to-black transitions, full-screen presentation frames, and credits.
+- `style.css` defines full-viewport film frames, crossfades, and the subtle whole-image office push.
+
+## Deprecated Prototype Modules
+
+The former overlay-based office system is retained only to avoid abrupt deletion while the production architecture changes. Do not use these modules for new film work:
+
+- monitor overlay alignment
+- fake monitor overlay screens
+- right-monitor camera push/zoom calculations
+- office element overlays for portrait, wall art, drink, candle, or monitors
+- runtime positioning of office objects
+- layered HTML recreation of the office
 
 ## View Online
 
 This project is configured for GitHub Pages. After this branch is merged, GitHub Actions deploys the static HTML application from the repository root whenever changes are pushed to `main`.
 
-To view the deployed project:
-
-1. Open this repository on GitHub.
-2. Select **Settings** > **Pages**.
-3. Confirm the source is set to **GitHub Actions**.
-4. Use the published GitHub Pages URL shown on that page. It usually follows this format:
-
-   ```text
-   https://<owner>.github.io/<repository>/
-   ```
-
-You can also open the latest **Deploy static site to GitHub Pages** workflow run from the **Actions** tab and use the deployment URL reported by the `github-pages` environment.
-
 ## Run
 
-Because the app uses ES6 modules, serve the folder with a local static server and open the shown URL:
+Because the app uses ES modules, serve the folder with a local static server and open the shown URL:
 
 ```bash
 python3 -m http.server 8000
